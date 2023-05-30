@@ -16,7 +16,7 @@ backcall @ file:///home/conda/feedstock_root/build_artifacts/backcall_1592338393
 backports.functools-lru-cache @ file:///home/conda/feedstock_root/build_artifacts/backports.functools_lru_cache_1618230623929/work
 beautifulsoup4 @ file:///home/conda/feedstock_root/build_artifacts/beautifulsoup4_1680888073205/work
 bleach @ file:///home/conda/feedstock_root/build_artifacts/bleach_1674535352125/work
-certifi==2023.5.7
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b64zphacdv/croot/certifi_1683875375103/work/certifi
 cffi @ file:///Users/runner/miniforge3/conda-bld/cffi_1671179612308/work
 charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1678108872112/work
 cma==3.2.2
@@ -98,6 +98,7 @@ pure-eval @ file:///home/conda/feedstock_root/build_artifacts/pure_eval_16428759
 pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
 pydot==1.4.2
 Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1681904169130/work
+pygraphviz @ file:///Users/ec2-user/ci_py311/pygraphviz_1678420361487/work
 pymoo==0.6.0.1
 pyobjc-core @ file:///Users/runner/miniforge3/conda-bld/pyobjc-core_1681824923907/work
 pyobjc-framework-Cocoa @ file:///Users/runner/miniforge3/conda-bld/pyobjc-framework-cocoa_1681878678630/work
