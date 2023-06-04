@@ -1,0 +1,17 @@
+pandas
+requests
+bs4
+seaborn
+natsort
+scipy
+scikit-learn
+distinctipy
+yellowbrick
+plotly
+pca
+altair
+networkx
+zss
+pymoo
+openTSNE
+pfevaluator
