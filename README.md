@@ -35,7 +35,7 @@ The resulting plots will be saved in the [plots](plots) folder.
 ##### RQ2: architectural differences
 Execute notebooks `rq2-cocome.ipynb` or `rq2-trainticket.ipynb` to generate the charts for Figures 7 and 8. 
 
-Among other computations, the notebooks above will generate several CSV and DOT files under the [data](data) folder.
+Among other computations, the notebooks above will generate several CSV and DOT files under the [datasets](datasets) folder.
 
 Execute notebook `tree-scripts.ipynb` to generate the charts for Figure 6.
 
@@ -44,7 +44,7 @@ The datasets needed by the notebooks are automatically loaded from a default fol
 ##### RQ3: covered design and solution spaces
 Execute notebooks `rq3-cocome.ipynb` or `rq3-trainticket.ipynb` to generate the charts for Figures 9 and 10. 
 
-Among other computations, the notebooks above will generate several CSV and DOT files under the [data](data) folder.
+Among other computations, the notebooks above will generate several CSV and DOT files under the [datasets](datasets) folder.
 
 Execute notebook `tree-scripts.ipynb` to generate the charts for Figures 11 and 12.
 
