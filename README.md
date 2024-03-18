@@ -1,6 +1,6 @@
 ### Replication package for the paper:
 
-*How do human interactions impact multi-objective optimization of software architecture refactoring?*
+*Introducing Interactions in Multi-Objective Optimization of Software Architectures*
 
 ---
 
