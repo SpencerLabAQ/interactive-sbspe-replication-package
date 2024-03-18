@@ -2,6 +2,8 @@
 
 *Introducing Interactions in Multi-Objective Optimization of Software Architectures*
 
+https://arxiv.org/abs/2308.15084
+
 ---
 
 ### How to generate the tables and figures in the paper
