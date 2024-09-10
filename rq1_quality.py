@@ -4,6 +4,7 @@ from pymoo.indicators.igd_plus import IGDPlus
 
 import pprint
 import pandas as pd
+import pfevaluator
 
 from pymoo.config import Config
 Config.warnings['not_compiled'] = False
@@ -80,6 +81,7 @@ def read_and_compute_metrics(exp, ref_pf=None):
 
     # Against itself if no reference is provided
     if ref_pf is None:
+        print('No reference front provided. Using the front of the experiment')
         ref_pf = pf.copy()
 
     # Metrics for the super pareto front
@@ -99,15 +101,43 @@ def runs_metrics(exp, ref_pf, point):
         metrics.append(run_metrics)
     return pd.DataFrame(metrics)
 
+def compute_ref_pf(casestudy):
+    pfs = [exp.get_pareto() for exp in getattr(experiments, casestudy)]
+    pfs = pd.concat(pfs)
+
+    # Compute the reference pareto front
+    ref_pf = non_dominated(pfs)
+    print('Number of solutions in the reference front:', len(ref_pf))
+    return ref_pf
+
+def non_dominated(pf):
+    # Remove duplicates
+    pf = pf.drop_duplicates()
+
+    # Remove dominated solutions
+    non_dom = []
+    for i, row in pf.iterrows():
+        dominated = False
+        for j, row2 in pf.iterrows():
+            if i == j:
+                continue
+            if all(row <= row2):
+                dominated = True
+                break
+        if not dominated:
+            non_dom.append(row)
+    return pd.DataFrame(non_dom)
+
 def compare_metrics(casestudy):
     cmp_metrics = []
     cmp_metrics_byrun = []
 
-    ref_pf = None
+    # ref_pf = None
+    ref_pf = compute_ref_pf(casestudy)
     for exp in getattr(experiments, casestudy):
         metrics, by_run = read_and_compute_metrics(exp, ref_pf=ref_pf)
-        if exp.short_name == 'reference 1000':
-            ref_pf = exp.get_pareto()
+        #if exp.short_name == 'reference 1000':
+        #    ref_pf = exp.get_pareto()
         cmp_metrics.append(metrics)
         cmp_metrics_byrun.append(by_run)
 
@@ -115,6 +145,11 @@ def compare_metrics(casestudy):
     print('\n{} metrics'.format(casestudy))
     df = pd.DataFrame(cmp_metrics)
     print(df)
+
+    # Standard deviation (rounded to 3 decimals) of the metrics by run
+    print('\n{} standard deviation'.format(casestudy))
+    df = pd.concat(cmp_metrics_byrun)
+    print(df.groupby('experiment').std().round(3))
 
     # Save metrics by run
     if isinstance(cmp_metrics_byrun[0], pd.DataFrame):
